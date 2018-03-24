@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.code-wrapper {
+    flex: 1;
+    height: 50%;
+    padding: 10px;
+}
+.previer-wrapper {
+    flex: 1;
+}
+#code{
+    overflow:auto;
+    height: 100%;
+}
+
