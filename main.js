@@ -1,19 +1,22 @@
 // @ts-ignore
-!function() {
+! function () {
+    let s = 20
+
     function writeCode(prefix, code, fn) {
         let container = document.querySelector('#code')
         let styleTga = document.querySelector('#styleTag')
         let n = 0
-        let id = setInterval(() => {
+        let id = setTimeout(function run() {
             n += 1
             container.innerHTML = code.substring(0, n)
             styleTga.innerHTML = code.substring(0, n)
             container.scrollTop = container.scrollHeight
-            if (n >= code.length) {
-                window.clearInterval(id)
+            if (n < code.length) {
+                id=setTimeout(run, s)
+            } else {
                 fn && fn.call()
             }
-        }, 10)
+        }, s)
     }
     let code = `
 /*首先,皮一下就很开心*/
@@ -144,5 +147,28 @@
 }
 /*大功告成,皮神No.1*/
 `
+    $('.actions').on('click', 'a', function (e) {
+        let $button = $(e.currentTarget)
+        let speed = $button.attr('data-speed')
+        let action = $button.attr('data-action')
+        console.log(action);
+        $button.addClass('active').siblings('.active').removeClass('active')
+        switch (speed) {
+            case 'slow':
+                s = 100
+                break
+            case 'middle':
+                s = 50
+                break
+            case 'fast':
+                s = 0
+                break
+        }
+        switch (action) {
+            case' over':
+                window.clearTimeout(id)
+                break;
+        }
+    })
     writeCode('', code)
 }.call()
