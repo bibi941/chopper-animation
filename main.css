@@ -21,6 +21,8 @@ body {
 #code {
     overflow: auto;
     height: 100%;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace
 }
 .actions {
     position: absolute;
@@ -31,10 +33,12 @@ body {
 }
 .actions > a {
     margin: 10px 30px;
+    border-radius: 4px;
+    font-size: 16px;
 }
 .button-tiny {
-    height: 16px;
-    line-height: 16px;
+    height: 25px;
+    line-height: 25px;
     padding: 0 14px;
 }
 
